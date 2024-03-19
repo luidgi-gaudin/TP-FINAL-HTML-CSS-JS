@@ -8,7 +8,32 @@ document.querySelector("form").addEventListener("submit", function (event) {
 	var password = document.getElementById("password").value;
 
 	if (email === correctmail && password === correctpassword) {
-		window.location.href = "dashboard.html";
+		document.body.innerHTML = `
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #343A40;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="align-self: center;">
+        <img id="engrenage" src="images/engrenage.gif" alt="Engrenage" width=200rem/>
+    </div>
+
+
+</body>
+`;
+		setTimeout(() => {
+			window.location.href = "dashboard.html";
+		}, 1000);
 	} else {
 		alert("Email ou Mot de passe incorrecte");
 	}
