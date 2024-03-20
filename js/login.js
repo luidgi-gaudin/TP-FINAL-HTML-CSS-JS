@@ -1,14 +1,15 @@
-var correctmail = "test@test.fr";
-var correctpassword = "test";
+let correctmail = "test@test.fr";
+let correctpassword = "test";
 
 document.querySelector("form").addEventListener("submit", function (event) {
 	event.preventDefault();
 
-	var email = document.getElementById("email").value;
-	var password = document.getElementById("password").value;
+	let email = document.getElementById("email").value;
+	let password = document.getElementById("password").value;
 
-	if (email === correctmail && password === correctpassword) {
-		document.body.innerHTML = `
+	if (email === correctmail) {
+		if (password === correctpassword) {
+			document.body.innerHTML = `
 <head>
     <style>
         body {
@@ -31,17 +32,22 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
 </body>
 `;
-		setTimeout(() => {
-			window.location.href = "dashboard.html";
-		}, 1000);
+			setTimeout(() => {
+				window.location.href = "dashboard.html";
+			}, 1000);
+		} else {
+			document.getElementById("mess_alerte").style.display = "block";
+			document.getElementById("alerte").innerHTML = "Mot de passe incorrect !";
+		}
 	} else {
-		alert("Email ou Mot de passe incorrecte");
+		document.getElementById("alerte").innerHTML = "Email incorrect !";
+		document.getElementById("mess_alerte").style.display = "block";
 	}
 });
 
 function SaveNewLogs() {
-	var emailNew = document.getElementById("emailChange").value;
-	var passwordNew = document.getElementById("passwordChange").value;
+	let emailNew = document.getElementById("emailChange").value;
+	let passwordNew = document.getElementById("passwordChange").value;
 
 	correctmail = emailNew;
 	correctpassword = passwordNew;

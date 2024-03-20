@@ -54,3 +54,9 @@ i{
     color: rgb(228, 228, 228);
     cursor: pointer;
 }
+.placement{
+    margin-top: 1rem!important;
+    margin-right: 5rem!important;
+    margin-left: 5rem!important;
+    max-width: 24rem!important;
+}
